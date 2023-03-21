@@ -1,0 +1,12 @@
+FROM python:3
+
+RUN pip install Pyro4 && pip install futures && pip install networkx
+
+WORKDIR /app/
+
+COPY ./alg_genet.py .
+COPY ./infra.gml . 
+COPY ./populacao_inical.json . 
+COPY ./vnr.json .
+
+CMD ["python", "/app/alg_genet.py"]
